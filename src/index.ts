@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client"
 import { CrossBuild } from "crossbuild"
+import { Client as Unb } from "unb-api"
 
 export const client = new CrossBuild({
 	name: "Minotaur",
@@ -11,3 +12,4 @@ export const client = new CrossBuild({
 })
 
 export const prisma = new PrismaClient()
+export const unb = new Unb(process.env.UNB_TOKEN!)

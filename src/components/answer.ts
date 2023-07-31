@@ -6,7 +6,8 @@ import { prisma } from ".."
 export default class Cmd extends Component {
 	constructor(client: CrossBuild) {
 		super("answer", "command", client, {
-			description: "Ping!",
+			description: "Manage puzzle answers",
+			serverOnly: true,
 			options: [
 				{
 					type: ApplicationCommandOptionType.String,
