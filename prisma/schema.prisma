@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Answer {
+  id           String  @id @default(cuid())
+  answer       String
+  channelId    String
+  roleToAdd    String?
+  roleToRemove String?
+  dmToSend     String?
+  coinsToAdd   Int?
+
+  @@unique([channelId, answer])
+}
+
+model Flag {
+  id        String @id @default(cuid())
+  channelId String
+  answer    String
+}
+
+model Hint {
+  itemId String @unique
+  hint   String
+}
